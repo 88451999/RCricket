@@ -1,0 +1,70 @@
+---
+title: "RCricketNS"
+output: html_document
+runtime: shiny
+---
+
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = TRUE)
+
+knitr::read_chunk("/RCode/cricket batters.R")
+
+```
+
+```{r echo=FALSE, message=FALSE, eval=TRUE, warning=FALSE, error=FALSE, results='hide'}
+<<load_data>>
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+# Factors for Win/Loss
+What factors (who won the toss, who batted 1st, etc.) contribute to winning teams:
+```{r echo=FALSE}
+<<plot_win_loss>>
+```
+
+```{r fig.height = 8, fig.width = 9, fig.align ="center", echo=FALSE}
+<<plot_win_loss_team>>
+```
+
+# Dismissals for/against excluding Not Outs
+```{r echo=FALSE}
+<<plot_dismiss_out>>
+```
+
+# Dismissals for/against including Not Outs
+```{r echo=FALSE}
+<<plot_dismiss_all>>
+```
+
+# Runs for/against by Boundary/Non/Extras
+```{r echo=FALSE}
+<<plot_boundary>>  
+```
+
+# Boxplot of winning, batting first
+```{r echo=FALSE}
+<<boxplot_win_bat_for>>  
+```
+
+# boxplot of batting first, for
+```{r echo=FALSE, warning=FALSE}
+<<boxplot_bat_for>>  
+```
+
+# Runs Per Over
+```{r echo=FALSE}
+<<shiny_rpo>>  
+```
+
+
+# By Team Stats
+```{r echo=FALSE}
+<<shiny_plots>>  
+```
